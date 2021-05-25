@@ -18,6 +18,10 @@ export default new Vuex.Store({
     
   },
   mutations: {
+    rateHero(state){
+      state.heroes.find(hero => hero.name == "MR. ROBOT").rate = 5
+console.log("good");
+    }
   },
   actions: {
   },

@@ -10,13 +10,26 @@
       ></v-text-field>
     </v-card-title>
     <v-data-table
+      class="table"
+      :hide-default-footer="true"
       :headers="$store.state.headers"
       :items="$store.state.heroes"
       :search="$store.state.search"
-      @click:row="handleClick"
     >
-      <template #item.rate="{item}">
-        <Rating :rating="item.rate" />
+      <template #item.name="{item}">
+        <div @click="handleClick">
+          {{ item.name }}
+        </div>
+      </template>
+
+      <template #item.powers="{item}">
+        <div @click="handleClick">
+          {{ item.powers }}
+        </div>
+      </template>
+
+      <template #item.rate="{item} ">
+        <Rating :rating="item.rate" @click="lol" />
       </template>
     </v-data-table>
   </v-card>
@@ -32,6 +45,11 @@ export default {
     handleClick() {
       this.$router.push({ path: "HeroProfile" });
     },
+    lol() {
+      console.log("lol");
+    },
   },
 };
 </script>
+
+<style scoped></style>
