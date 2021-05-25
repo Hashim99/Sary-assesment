@@ -1,0 +1,9 @@
+{
+    "heroes": [
+     
+    { "name": "MR. ROBOT", "powers": "Coding with VIM, Know Angular", "rate": 4 },
+    {"name": "Richard Stallman", "powers": "Freedom Protector", "rate": 4 },
+    { "name": "Tim Berners-Lee", "powers": "Transport Objects Through HTTP", "rate": 4 }
+    
+  ]
+}
