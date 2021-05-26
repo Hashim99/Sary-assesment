@@ -31,8 +31,6 @@ export default new Vuex.Store({
         });
 
       localStorage.setItem("heroes", JSON.stringify(state.heroes));
-
-      console.log(data.heroes);
     },
   },
   actions: {},
