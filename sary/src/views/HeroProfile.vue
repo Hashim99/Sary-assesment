@@ -16,10 +16,8 @@
         </v-card-text>
       </v-layout>
     </v-container>
-    <v-btn @click="backHome"  class="ma-2" color="orange darken-2" dark>
-      <v-icon dark left>
-        mdi-arrow-left </v-icon
-      >Back
+    <v-btn @click="backHome" class="ma-2" color="orange darken-2" dark>
+      <v-icon dark left> mdi-arrow-left </v-icon>Back
     </v-btn>
   </v-card>
 </template>
@@ -31,11 +29,11 @@ export default {
       hero: this.$store.state.selectedHero,
     };
   },
-  methods:{
-    backHome(){
-      this.$router.push({name:"All Heroes"})
-    }
-  }
+  methods: {
+    backHome() {
+      this.$router.push({ name: "All Heroes" });
+    },
+  },
 };
 </script>
 

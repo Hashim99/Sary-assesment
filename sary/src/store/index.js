@@ -18,23 +18,21 @@ export default new Vuex.Store({
   },
   mutations: {
     rateHero(state) {
-     
-        state.heroes
-          .filter((hero) => {
-            return (
-              hero.name
-                .toLowerCase()
-                .indexOf(state.selectedHero.name.toLowerCase()) !== -1
-            );
-          })
-          .forEach((hero) => {
-            hero.rate = state.userRating;
-          });
+      state.heroes
+        .filter((hero) => {
+          return (
+            hero.name
+              .toLowerCase()
+              .indexOf(state.selectedHero.name.toLowerCase()) !== -1
+          );
+        })
+        .forEach((hero) => {
+          hero.rate = state.userRating;
+        });
 
-        localStorage.setItem("heroes", JSON.stringify(state.heroes));
+      localStorage.setItem("heroes", JSON.stringify(state.heroes));
 
-        console.log(data.heroes);
-      
+      console.log(data.heroes);
     },
   },
   actions: {},

@@ -17,13 +17,12 @@ export default {
   props: ["rating"],
   data() {
     return {
-      rating: this.$store.state.selectedHero.rating
+      rating: this.$store.state.selectedHero.rating,
     };
   },
   methods: {
     saveRating(rating) {
-      this.$store.state.userRating =rating
-
+      this.$store.state.userRating = rating;
     },
   },
 };
