@@ -53,8 +53,18 @@ export default {
         powers: hero.powers,
       };
       this.$router.push({ name: "Hero Profile" });
-    }
-  }
+    },
+    rateHero(e) {
+   
+      var hero = e.path[3].childNodes[0].innerHTML;
+
+      this.$store.state.selectedHero = {
+        name: hero,
+      };
+
+      this.$store.commit("rateHero", 3);
+    },
+  },
 };
 </script>
 
