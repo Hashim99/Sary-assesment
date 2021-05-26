@@ -13,23 +13,20 @@
       class="table"
       :hide-default-footer="true"
       :headers="$store.state.headers"
-      :items="$store.state.heroes"
+      :items="heroes"
       :search="$store.state.search"
+      @click:row="selectHero"
     >
-      <template #item.name="{item}">
-        <div @click="handleClick">
-          {{ item.name }}
-        </div>
-      </template>
+      >
 
-      <template #item.powers="{item}">
-        <div @click="handleClick">
-          {{ item.powers }}
-        </div>
+      <template slot="items" slot-scope="props">
+        <td>{{ props.item.name }}</td>
+
+        <td>{{ props.item.powers }}</td>
       </template>
 
       <template #item.rate="{item} ">
-        <Rating :rating="item.rate" @click="lol" />
+        <Rating @click.native.stop="rateHero" :rating="item.rate" />
       </template>
     </v-data-table>
   </v-card>
@@ -41,12 +38,28 @@ export default {
   components: {
     Rating,
   },
+  data() {
+    return {
+      heroes: this.$store.state.heroes,
+    };
+  },
   methods: {
-    handleClick() {
-      this.$router.push({ path: "HeroProfile" });
+    selectHero(hero) {
+      this.$store.state.selectedHero = {
+        name: hero.name,
+        powers: hero.powers,
+      };
+      this.$router.push({name:"Hero Profile"})
     },
-    lol() {
-      console.log("lol");
+    rateHero(e) {
+      var lol = e.path[3].childNodes[0].innerHTML;
+
+    
+      this.$store.state.selectedHero = {
+        name: lol,
+      };
+
+        this.$store.commit("rateHero",3);
     },
   },
 };

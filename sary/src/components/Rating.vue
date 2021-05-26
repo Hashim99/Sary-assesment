@@ -6,26 +6,27 @@
     hover
     :length="5"
     :size="30"
-    
-     @input="addRating($event, rating.id)"
-      :value="rating.id"
-
-:id="rating.id"
+    @input="saveRating($event)"
+    :value="rating"
+    :id="rating.id"
   ></v-rating>
 </template>
 
 <script>
 export default {
   props: ["rating"],
+  data() {
+    return {
+      rating: this.$store.state.selectedHero.rating
+    };
+  },
   methods: {
-    addRating(value, id) {
+    saveRating(rating) {
+      this.$store.state.userRating =rating
 
-      this.$store.commit("rateHero")
-    }
-  }
+    },
+  },
 };
 </script>
 
-<style>
-
-</style>
+<style></style>
