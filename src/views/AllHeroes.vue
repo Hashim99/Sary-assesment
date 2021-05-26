@@ -38,8 +38,11 @@ export default {
   components: {
     Rating,
   },
+
+  
   data() {
     return {
+      
       heroes: this.$store.state.heroes,
     };
   },
@@ -50,17 +53,8 @@ export default {
         powers: hero.powers,
       };
       this.$router.push({ name: "Hero Profile" });
-    },
-    rateHero(e) {
-      var lol = e.path[3].childNodes[0].innerHTML;
-
-      this.$store.state.selectedHero = {
-        name: lol,
-      };
-
-      this.$store.commit("rateHero", 3);
-    },
-  },
+    }
+  }
 };
 </script>
 

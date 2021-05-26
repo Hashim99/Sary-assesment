@@ -5,9 +5,13 @@ import store from "./store";
 import vuetify from "./plugins/vuetify";
 import data from "./data/heroes.json";
 
-if (localStorage.getItem("heroes") === null) {
-  localStorage.setItem("heroes", JSON.stringify(data.heroes));
-}
+
+  if (localStorage.getItem("heroes") === null) {
+    localStorage.setItem("heroes", JSON.stringify(data.heroes));
+  }
+
+
+
 
 Vue.config.productionTip = false;
 
